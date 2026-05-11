@@ -1,7 +1,7 @@
-# 妈妈语录 · 夸夸生成器 / Mom Quotes Generator（Mother’s Day Edition）
+# 妈妈语录 · 夸夸生成器（Mother’s Day Edition）
 
 一个零素材、零依赖的母亲节小网页：随机生成“妈妈经典语录” + 你的“夸夸回应”，并支持一键导出可分享的海报 PNG。  
-A zero-asset, zero-dependency Mother’s Day web gift: generate mom quotes + your sweet replies, and export a shareable PNG poster.
+（支持**中/英一键切换**：界面、语录、夸夸、海报都会随语言切换。）
 
 ## 功能
 
@@ -13,14 +13,10 @@ A zero-asset, zero-dependency Mother’s Day web gift: generate mom quotes + you
 - 海报导出：Canvas 生成 1080×1350 PNG（适合朋友圈/群聊分享）
 - 彩蛋：连续抽卡 10 次解锁“最强妈妈奖”奖状
 
-## Features (EN)
+## English
 
-- Quote picker with categories (Care/Health/Money/Love/Work/Life)
-- Reply generator with 3 tones (Warm / Funny / Bossy)
-- Saved & History via LocalStorage
-- Copy text and copy shareable link (state encoded in URL)
-- Export a 1080×1350 PNG poster via Canvas
-- Easter egg: pick 10 times to unlock a “Best Mom Award”
+A zero-asset, zero-dependency Mother’s Day web gift: generate classic mom quotes + your sweet replies, export a shareable PNG poster.  
+One-click language switch (ZH/EN) for UI, quotes, replies, and posters.
 
 ## 运行方式（本地）
 
