@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>妈妈语录 · 夸夸反击生成器</title>
+    <title>妈妈语录 · 夸夸生成器</title>
     <meta
       name="description"
-      content="随机生成妈妈经典语录 + 你的夸夸反击，并一键导出可分享海报。"
+      content="随机生成妈妈经典语录 + 你的夸夸回应，并一键导出可分享海报。"
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
@@ -14,8 +14,8 @@
     <main class="app">
       <header class="header">
         <div class="badge">Mother’s Day Edition</div>
-        <h1>妈妈语录 · 夸夸反击生成器</h1>
-        <p class="sub">抽一句“妈妈经典语录”，再生成你的温柔/沙雕/霸总式反击。还能一键导出海报。</p>
+        <h1>妈妈语录 · 夸夸生成器</h1>
+        <p class="sub">抽一句“妈妈经典语录”，再生成你的温柔/沙雕/霸总式夸夸回应。还能一键导出海报。</p>
       </header>
 
       <section class="panel">
@@ -33,7 +33,7 @@
             <select id="category"></select>
           </label>
           <label class="field">
-            <span>反击语气</span>
+            <span>夸夸语气</span>
             <select id="tone">
               <option value="warm">温柔夸夸</option>
               <option value="funny">沙雕搞笑</option>
@@ -44,7 +44,7 @@
 
         <div class="actions">
           <button id="btnPick" class="btn primary">抽一句</button>
-          <button id="btnReply" class="btn">生成反击</button>
+          <button id="btnReply" class="btn">生成夸夸</button>
           <button id="btnFav" class="btn">收藏</button>
           <button id="btnCopy" class="btn">复制文案</button>
           <button id="btnLink" class="btn">复制分享链接</button>
@@ -60,7 +60,7 @@
           </div>
           <div class="quote" id="quote">今天也要记得：你很棒。</div>
           <div class="divider"></div>
-          <div class="replyLabel">你的反击：</div>
+          <div class="replyLabel">你的夸夸：</div>
           <div class="reply" id="reply">先抽一句语录吧～</div>
           <div class="cardFooter">
             <span class="footerText" id="footerText">—</span>
@@ -118,4 +118,3 @@
     <script src="./app.js"></script>
   </body>
 </html>
-

@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 /**
- * 妈妈语录 · 夸夸反击生成器
+ * 妈妈语录 · 夸夸生成器
  * - 零依赖，静态网页即可运行
  * - 本地存储：收藏、历史、设置
  * - 可生成分享链接（URL 参数）与导出 PNG 海报
@@ -183,7 +183,7 @@ function formatCardText({ quoteIndex, replyIndex, tone }) {
   const reply = REPLIES[tone]?.[replyIndex] ?? "（空）";
   const mom = state.motherName || "妈妈";
   const from = state.fromName || "我";
-  return `【${catName}】${mom}说：${quote}\n\n我的反击（${toneName(tone)}）：${reply}\n\n— ${from}`;
+  return `【${catName}】${mom}说：${quote}\n\n我的夸夸（${toneName(tone)}）：${reply}\n\n— ${from}`;
 }
 
 function toneName(tone) {
@@ -213,7 +213,7 @@ function renderCard() {
   const catName = CATEGORIES.find((c) => c.key === cat)?.name ?? "全部";
 
   els.tag.textContent = `${catName} · ${mom}`;
-  els.hint.textContent = `反击语气：${toneName(tone)}`;
+  els.hint.textContent = `夸夸语气：${toneName(tone)}`;
   els.quote.textContent = quote;
   els.reply.textContent = REPLIES[tone]?.[replyIndex] ?? "（空）";
 }
@@ -441,7 +441,7 @@ function makePosterData({ mode }) {
   return {
     title: `母亲节快乐，${mom}`,
     quote: `“${QUOTES[quoteIndex]?.text ?? ""}”`,
-    reply: `我的反击（${toneName(tone)}）：${REPLIES[tone]?.[replyIndex] ?? ""}`,
+    reply: `我的夸夸（${toneName(tone)}）：${REPLIES[tone]?.[replyIndex] ?? ""}`,
     footer: `— ${from}`,
     tag: `${catName} · ${toneName(tone)}`,
   };
@@ -519,7 +519,7 @@ function renderPosterToDataURL(posterData) {
   // reply
   ctx.fillStyle = "rgba(31,34,48,0.72)";
   ctx.font = "800 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, PingFang SC";
-  ctx.fillText("你的反击：", cardX + 42, y);
+  ctx.fillText("你的夸夸：", cardX + 42, y);
   y += 46;
   ctx.fillStyle = "rgba(31,34,48,0.86)";
   ctx.font = "800 34px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, PingFang SC";
@@ -722,4 +722,3 @@ function init() {
 }
 
 init();
-
