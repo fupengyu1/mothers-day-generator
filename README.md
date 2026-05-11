@@ -1,6 +1,7 @@
-# 妈妈语录 · 夸夸生成器（Mother’s Day Edition）
+# 妈妈语录 · 夸夸生成器 / Mom Quotes Generator（Mother’s Day Edition）
 
-一个零素材、零依赖的母亲节小网页：随机生成“妈妈经典语录” + 你的“夸夸回应”，并支持一键导出可分享的海报 PNG。
+一个零素材、零依赖的母亲节小网页：随机生成“妈妈经典语录” + 你的“夸夸回应”，并支持一键导出可分享的海报 PNG。  
+A zero-asset, zero-dependency Mother’s Day web gift: generate mom quotes + your sweet replies, and export a shareable PNG poster.
 
 ## 功能
 
@@ -11,6 +12,15 @@
 - 分享链接：把当前卡片状态编码进 URL（朋友打开即可看到同一张卡）
 - 海报导出：Canvas 生成 1080×1350 PNG（适合朋友圈/群聊分享）
 - 彩蛋：连续抽卡 10 次解锁“最强妈妈奖”奖状
+
+## Features (EN)
+
+- Quote picker with categories (Care/Health/Money/Love/Work/Life)
+- Reply generator with 3 tones (Warm / Funny / Bossy)
+- Saved & History via LocalStorage
+- Copy text and copy shareable link (state encoded in URL)
+- Export a 1080×1350 PNG poster via Canvas
+- Easter egg: pick 10 times to unlock a “Best Mom Award”
 
 ## 运行方式（本地）
 
@@ -47,7 +57,11 @@ python3 -m http.server 5173
 
 > 我用 TRAE 做了一个母亲节小网页：随机生成“妈妈经典语录”和我的“夸夸反击”，还能把卡片一键生成可分享海报。没有用任何现成素材，全部用文字、配色和排版做出成品感，并支持分类抽取、收藏和本地保存。
 
-（你也可以把上面这句里的“夸夸反击”改成“夸夸回应”，更温柔～）
+（建议用“夸夸回应 / sweet reply”更温柔～）
+
+## Submission blurb (EN)
+
+> Built with TRAE: a Mother’s Day mini web app that generates “classic mom quotes” and my sweet replies. It supports category-based picking, local saved/history, shareable links, and one-click poster export (PNG) — no pre-made assets used.
 
 ## 推送到 GitHub（你还没有仓库的情况）
 

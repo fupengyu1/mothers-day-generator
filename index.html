@@ -3,52 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>妈妈语录 · 夸夸生成器</title>
+    <title>妈妈语录 · 夸夸生成器 / Mom Quotes Generator</title>
     <meta
       name="description"
-      content="随机生成妈妈经典语录 + 你的夸夸回应，并一键导出可分享海报。"
+      content="随机生成妈妈经典语录 + 你的夸夸回应，并一键导出可分享海报 / Generate mom quotes + your sweet replies, export a shareable poster."
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <main class="app">
       <header class="header">
-        <div class="badge">Mother’s Day Edition</div>
-        <h1>妈妈语录 · 夸夸生成器</h1>
-        <p class="sub">抽一句“妈妈经典语录”，再生成你的温柔/沙雕/霸总式夸夸回应。还能一键导出海报。</p>
+        <div class="badge">Mother’s Day Edition / 母亲节特别版</div>
+        <h1>妈妈语录 · 夸夸生成器 <span style="opacity:.75">/ Mom Quotes Generator</span></h1>
+        <p class="sub">
+          抽一句“妈妈经典语录”，再生成你的温柔/沙雕/霸总式夸夸回应。还能一键导出海报
+          <span style="opacity:.75">/ Pick a mom quote, generate your sweet reply, export a poster.</span>
+        </p>
       </header>
 
       <section class="panel">
         <div class="grid">
           <label class="field">
-            <span>妈妈昵称</span>
-            <input id="motherName" maxlength="12" placeholder="例如：女王大人" />
+            <span>妈妈昵称 / Mom</span>
+            <input id="motherName" maxlength="12" placeholder="例如：女王大人 / e.g. Queen" />
           </label>
           <label class="field">
-            <span>你的署名</span>
-            <input id="fromName" maxlength="12" placeholder="例如：小孩" />
+            <span>你的署名 / From</span>
+            <input id="fromName" maxlength="12" placeholder="例如：小孩 / e.g. Me" />
           </label>
           <label class="field">
-            <span>语录分类</span>
+            <span>语录分类 / Category</span>
             <select id="category"></select>
           </label>
           <label class="field">
-            <span>夸夸语气</span>
+            <span>夸夸语气 / Tone</span>
             <select id="tone">
-              <option value="warm">温柔夸夸</option>
-              <option value="funny">沙雕搞笑</option>
-              <option value="boss">霸总宠妈</option>
+              <option value="warm">温柔夸夸 / Warm</option>
+              <option value="funny">沙雕搞笑 / Funny</option>
+              <option value="boss">霸总宠妈 / Bossy</option>
             </select>
           </label>
         </div>
 
         <div class="actions">
-          <button id="btnPick" class="btn primary">抽一句</button>
-          <button id="btnReply" class="btn">生成夸夸</button>
-          <button id="btnFav" class="btn">收藏</button>
-          <button id="btnCopy" class="btn">复制文案</button>
-          <button id="btnLink" class="btn">复制分享链接</button>
-          <button id="btnPoster" class="btn glow">生成海报</button>
+          <button id="btnPick" class="btn primary">抽一句 / Pick</button>
+          <button id="btnReply" class="btn">生成夸夸 / Generate</button>
+          <button id="btnFav" class="btn">收藏 / Save</button>
+          <button id="btnCopy" class="btn">复制文案 / Copy</button>
+          <button id="btnLink" class="btn">复制分享链接 / Copy Link</button>
+          <button id="btnPoster" class="btn glow">生成海报 / Poster</button>
         </div>
       </section>
 
@@ -56,11 +59,11 @@
         <article class="card" id="card">
           <div class="cardTop">
             <div class="tag" id="tag">—</div>
-            <div class="small" id="hint">点击“抽一句”开始</div>
+            <div class="small" id="hint">点击“抽一句 / Pick”开始</div>
           </div>
           <div class="quote" id="quote">今天也要记得：你很棒。</div>
           <div class="divider"></div>
-          <div class="replyLabel">你的夸夸：</div>
+          <div class="replyLabel">你的夸夸 / Your reply：</div>
           <div class="reply" id="reply">先抽一句语录吧～</div>
           <div class="cardFooter">
             <span class="footerText" id="footerText">—</span>
@@ -70,8 +73,8 @@
 
         <aside class="side">
           <div class="tabs">
-            <button class="tab active" data-tab="fav">收藏</button>
-            <button class="tab" data-tab="his">历史</button>
+            <button class="tab active" data-tab="fav">收藏 / Saved</button>
+            <button class="tab" data-tab="his">历史 / History</button>
           </div>
 
           <div class="tabPane" id="paneFav"></div>
@@ -80,37 +83,39 @@
       </section>
 
       <footer class="footer">
-        <span>Built with TRAE · 送给每一位妈妈</span>
-        <button id="btnReset" class="linkBtn">重置本地数据</button>
+        <span>Built with TRAE · 送给每一位妈妈 / For every mom</span>
+        <button id="btnReset" class="linkBtn">重置本地数据 / Reset</button>
       </footer>
     </main>
 
     <dialog id="posterDialog" class="dialog">
       <div class="dialogBody">
         <div class="dialogHeader">
-          <div class="dialogTitle">海报已生成</div>
+          <div class="dialogTitle">海报已生成 / Poster ready</div>
           <button id="btnCloseDialog" class="iconBtn" aria-label="关闭">×</button>
         </div>
         <img id="posterImg" alt="海报预览" />
         <div class="dialogActions">
-          <a id="btnDownloadPoster" class="btn primary" download="母亲节海报.png">下载 PNG</a>
-          <button id="btnCopyPosterText" class="btn">复制海报文案</button>
+          <a id="btnDownloadPoster" class="btn primary" download="母亲节海报.png">下载 PNG / Download</a>
+          <button id="btnCopyPosterText" class="btn">复制海报文案 / Copy text</button>
         </div>
-        <p class="dialogHint">提示：手机端若无法直接下载，可长按图片保存。</p>
+        <p class="dialogHint">提示：手机端若无法直接下载，可长按图片保存 / Long-press to save on mobile.</p>
       </div>
     </dialog>
 
     <dialog id="easterDialog" class="dialog">
       <div class="dialogBody">
         <div class="dialogHeader">
-          <div class="dialogTitle">彩蛋：母亲节奖状</div>
+          <div class="dialogTitle">彩蛋 / Easter Egg：母亲节奖状 / Award</div>
           <button id="btnCloseEaster" class="iconBtn" aria-label="关闭">×</button>
         </div>
         <div class="easter">
-          <div class="easterTitle">🏅 最强妈妈奖 🏅</div>
+          <div class="easterTitle">🏅 最强妈妈奖 / Best Mom Award 🏅</div>
           <div class="easterText" id="easterText">授予：妈妈</div>
-          <div class="easterSub">理由：全年无休的爱与操心，冠军级的温柔与强大。</div>
-          <button id="btnEasterPoster" class="btn glow">把奖状也做成海报</button>
+          <div class="easterSub">
+            理由：全年无休的爱与操心，冠军级的温柔与强大 / For endless love & care, and champion-level strength.
+          </div>
+          <button id="btnEasterPoster" class="btn glow">把奖状也做成海报 / Make poster</button>
         </div>
       </div>
     </dialog>

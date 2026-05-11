@@ -9,13 +9,13 @@
 const STORAGE_KEY = "mom-quotes-v1";
 
 const CATEGORIES = [
-  { key: "all", name: "全部" },
-  { key: "care", name: "关心" },
-  { key: "health", name: "养生" },
-  { key: "money", name: "省钱" },
-  { key: "love", name: "催婚" },
-  { key: "work", name: "学习/工作" },
-  { key: "life", name: "生活唠叨" },
+  { key: "all", name: "全部 / All" },
+  { key: "care", name: "关心 / Care" },
+  { key: "health", name: "养生 / Health" },
+  { key: "money", name: "省钱 / Money" },
+  { key: "love", name: "催婚 / Love" },
+  { key: "work", name: "学习/工作 / Work" },
+  { key: "life", name: "生活唠叨 / Life" },
 ];
 
 const QUOTES = [
@@ -183,11 +183,15 @@ function formatCardText({ quoteIndex, replyIndex, tone }) {
   const reply = REPLIES[tone]?.[replyIndex] ?? "（空）";
   const mom = state.motherName || "妈妈";
   const from = state.fromName || "我";
-  return `【${catName}】${mom}说：${quote}\n\n我的夸夸（${toneName(tone)}）：${reply}\n\n— ${from}`;
+  return `【${catName}】${mom}说 / says：${quote}\n\n我的夸夸 / My reply（${toneName(tone)}）：${reply}\n\n— ${from}`;
 }
 
 function toneName(tone) {
-  return tone === "warm" ? "温柔夸夸" : tone === "funny" ? "沙雕搞笑" : "霸总宠妈";
+  return tone === "warm"
+    ? "温柔夸夸 / Warm"
+    : tone === "funny"
+      ? "沙雕搞笑 / Funny"
+      : "霸总宠妈 / Bossy";
 }
 
 function renderCategoryOptions() {
@@ -203,7 +207,7 @@ function renderCard() {
 
   if (!state.current) {
     els.tag.textContent = "—";
-    els.hint.textContent = "点击“抽一句”开始";
+    els.hint.textContent = "点击“抽一句 / Pick”开始";
     return;
   }
 
@@ -213,14 +217,14 @@ function renderCard() {
   const catName = CATEGORIES.find((c) => c.key === cat)?.name ?? "全部";
 
   els.tag.textContent = `${catName} · ${mom}`;
-  els.hint.textContent = `夸夸语气：${toneName(tone)}`;
+  els.hint.textContent = `夸夸语气 / Tone：${toneName(tone)}`;
   els.quote.textContent = quote;
   els.reply.textContent = REPLIES[tone]?.[replyIndex] ?? "（空）";
 }
 
 function renderList(pane, list, { removable }) {
   if (!list.length) {
-    pane.innerHTML = `<div class="item"><div class="itemText">（这里还空空的）</div><div class="itemSub">去抽几句吧～</div></div>`;
+    pane.innerHTML = `<div class="item"><div class="itemText">（这里还空空的 / Empty）</div><div class="itemSub">去抽几句吧～ / Pick some!</div></div>`;
     return;
   }
   pane.innerHTML = list
@@ -238,7 +242,7 @@ function renderList(pane, list, { removable }) {
           ${
             removable
               ? `<button class="itemBtn" data-action="remove" data-idx="${idx}" title="删除">删除</button>`
-              : `<button class="itemBtn" data-action="use" data-idx="${idx}" title="套用">套用</button>`
+              : `<button class="itemBtn" data-action="use" data-idx="${idx}" title="套用 / Use">套用 / Use</button>`
           }
         </div>
         <div class="itemText">${escapeHTML(quote)}</div>
@@ -357,7 +361,7 @@ function regenReply() {
 async function copyText(text) {
   try {
     await navigator.clipboard.writeText(text);
-    toast("已复制");
+    toast("已复制 / Copied");
   } catch {
     // fallback
     const ta = document.createElement("textarea");
@@ -366,7 +370,7 @@ async function copyText(text) {
     ta.select();
     document.execCommand("copy");
     ta.remove();
-    toast("已复制");
+    toast("已复制 / Copied");
   }
 }
 
@@ -428,9 +432,15 @@ function makePosterData({ mode }) {
 
   if (mode === "easter") {
     const title = "最强妈妈奖";
-    const content = `授予：${mom}\n理由：全年无休的爱与操心，冠军级的温柔与强大。`;
+    const content = `授予 / Awarded to：${mom}\n理由 / Reason：全年无休的爱与操心，冠军级的温柔与强大。`;
     const footer = `— ${from}`;
-    return { title, quote: content, reply: "母亲节快乐！谢谢你一直在。", footer, tag: "彩蛋奖状" };
+    return {
+      title: "最强妈妈奖 / Best Mom Award",
+      quote: content,
+      reply: "母亲节快乐！谢谢你一直在。/ Happy Mother's Day. Thank you for being there.",
+      footer,
+      tag: "彩蛋奖状 / Easter Egg",
+    };
   }
 
   if (!state.current) pickQuote();
@@ -441,7 +451,7 @@ function makePosterData({ mode }) {
   return {
     title: `母亲节快乐，${mom}`,
     quote: `“${QUOTES[quoteIndex]?.text ?? ""}”`,
-    reply: `我的夸夸（${toneName(tone)}）：${REPLIES[tone]?.[replyIndex] ?? ""}`,
+    reply: `我的夸夸 / My reply（${toneName(tone)}）：${REPLIES[tone]?.[replyIndex] ?? ""}`,
     footer: `— ${from}`,
     tag: `${catName} · ${toneName(tone)}`,
   };
@@ -519,7 +529,7 @@ function renderPosterToDataURL(posterData) {
   // reply
   ctx.fillStyle = "rgba(31,34,48,0.72)";
   ctx.font = "800 28px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, PingFang SC";
-  ctx.fillText("你的夸夸：", cardX + 42, y);
+  ctx.fillText("你的夸夸 / Your reply:", cardX + 42, y);
   y += 46;
   ctx.fillStyle = "rgba(31,34,48,0.86)";
   ctx.font = "800 34px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, PingFang SC";
@@ -533,7 +543,7 @@ function renderPosterToDataURL(posterData) {
   // bottom small
   ctx.fillStyle = "rgba(31,34,48,0.62)";
   ctx.font = "700 26px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, PingFang SC";
-  ctx.fillText("Made with TRAE · 送给每一位妈妈", pad, H - 70);
+  ctx.fillText("Made with TRAE · 送给每一位妈妈 / For every mom", pad, H - 70);
 
   return canvas.toDataURL("image/png");
 }
@@ -580,7 +590,7 @@ function bindLists() {
       state.favorites.splice(idx, 1);
       saveLocal();
       renderSide();
-      toast("已删除收藏");
+      toast("已删除收藏 / Removed");
     }
   });
 
@@ -598,7 +608,7 @@ function bindLists() {
       renderCard();
       updateShareUrl();
       saveLocal();
-      toast("已套用到卡片");
+      toast("已套用到卡片 / Applied");
     }
   });
 }
@@ -624,14 +634,14 @@ function bindActions() {
     if (!state.current) pickQuote();
     const curr = state.current;
     if (isFavorited(curr)) {
-      toast("已收藏过啦");
+      toast("已收藏过啦 / Already saved");
       return;
     }
     state.favorites.unshift({ ...curr, ts: Date.now() });
     state.favorites = state.favorites.slice(0, 30);
     saveLocal();
     renderSide();
-    toast("已收藏");
+    toast("已收藏 / Saved");
   });
 
   els.btnCopy.addEventListener("click", async () => {
@@ -671,7 +681,7 @@ function bindActions() {
   });
 
   els.btnReset.addEventListener("click", () => {
-    const ok = confirm("确定要清空本地收藏/历史/设置吗？");
+    const ok = confirm("确定要清空本地收藏/历史/设置吗？\nReset saved/history/settings?");
     if (!ok) return;
     localStorage.removeItem(STORAGE_KEY);
     window.location.href = window.location.pathname;
