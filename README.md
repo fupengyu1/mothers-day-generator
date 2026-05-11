@@ -3,6 +3,16 @@
 一个零素材、零依赖的母亲节小网页：随机生成“妈妈经典语录” + 你的“夸夸回应”，并支持一键导出可分享的海报 PNG。  
 （支持**中/英一键切换**：界面、语录、夸夸、海报都会随语言切换。）
 
+## 在线体验（Project Link）
+
+- GitHub Pages: https://fupengyu1.github.io/mothers-day-generator/
+- Repo: https://github.com/fupengyu1/mothers-day-generator
+
+## Demo（演示）
+
+- 视频（MP4）：[`demo/mothers-day-demo.mp4`](./demo/mothers-day-demo.mp4)
+- 动图（GIF）：![demo gif](./demo/mothers-day-demo.gif)
+
 ## 功能
 
 - 语录抽卡：按分类随机抽取（关心/养生/省钱/催婚/学习工作/生活唠叨）
@@ -17,6 +27,22 @@
 
 A zero-asset, zero-dependency Mother’s Day web gift: generate classic mom quotes + your sweet replies, export a shareable PNG poster.  
 One-click language switch (ZH/EN) for UI, quotes, replies, and posters.
+
+## Submission Post（可直接发帖）
+
+> 也可直接复制 `submission_post.md` 里的内容。
+
+### Post (EN) — Recommended
+
+**Project Link:** https://fupengyu1.github.io/mothers-day-generator/  
+**Project Demo (video):** *(upload `demo/mothers-day-demo.mp4` as attachment)*  
+**Description:** I built a Mother’s Day mini web gift with TRAE: a “Mom Quotes Generator” that picks classic mom quotes and generates sweet replies in different tones. It supports one-click ZH/EN toggle (UI + quotes + replies + poster), saved/history, shareable links, and one-click poster export (PNG).
+
+### Post（中文）
+
+**项目链接：** https://fupengyu1.github.io/mothers-day-generator/  
+**演示（视频）：** *(上传 `demo/mothers-day-demo.mp4` 作为附件)*  
+**简介：** 我用 TRAE 做了一个母亲节小游戏网页「妈妈语录·夸夸生成器」：随机抽取妈妈经典语录，并生成不同语气的夸夸回应；支持中英一键切换（界面/语录/夸夸/海报全切换）、收藏/历史、本地保存、可分享链接、以及一键导出 PNG 海报。
 
 ## 运行方式（本地）
 
@@ -44,40 +70,7 @@ python3 -m http.server 5173
 ## Demo 视频脚本（30–45 秒）
 
 1. 打开页面：选择“养生类”→点【抽一句】
-2. 切换“反击语气：沙雕搞笑”→点【生成反击】
+2. 切换“夸夸语气：沙雕搞笑”→点【生成夸夸】
 3. 输入“妈妈昵称：女王大人”→卡片自动更新
 4. 点【生成海报】→展示预览并下载 PNG
 5. 打开右侧【收藏】→展示已收藏的 2–3 条
-
-## 投稿用描述（可直接用）
-
-> 我用 TRAE 做了一个母亲节小网页：随机生成“妈妈经典语录”和我的“夸夸反击”，还能把卡片一键生成可分享海报。没有用任何现成素材，全部用文字、配色和排版做出成品感，并支持分类抽取、收藏和本地保存。
-
-（建议用“夸夸回应 / sweet reply”更温柔～）
-
-## Submission blurb (EN)
-
-> Built with TRAE: a Mother’s Day mini web app that generates “classic mom quotes” and my sweet replies. It supports category-based picking, local saved/history, shareable links, and one-click poster export (PNG) — no pre-made assets used.
-
-## 推送到 GitHub（你还没有仓库的情况）
-
-1) 先在 GitHub 新建一个空仓库（不要勾选 README/License，保持空仓库）
-
-2) 在本地项目目录执行（把 `<YOUR_REPO_URL>` 换成你的仓库地址）：
-
-```bash
-git init
-git add .
-git commit -m "feat: mother's day quote & clapback generator"
-git branch -M main
-git remote add origin <YOUR_REPO_URL>
-git push -u origin main
-```
-
-3) （可选）开启 GitHub Pages
-
-- Settings → Pages
-- Source 选择 `Deploy from a branch`
-- Branch 选择 `main / (root)`
-
-等待片刻即可得到一个可分享的在线链接（项目链接）。
