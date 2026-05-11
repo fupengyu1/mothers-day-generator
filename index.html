@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>妈妈语录 · 夸夸反击生成器</title>
+    <meta
+      name="description"
+      content="随机生成妈妈经典语录 + 你的夸夸反击，并一键导出可分享海报。"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div class="badge">Mother’s Day Edition</div>
+        <h1>妈妈语录 · 夸夸反击生成器</h1>
+        <p class="sub">抽一句“妈妈经典语录”，再生成你的温柔/沙雕/霸总式反击。还能一键导出海报。</p>
+      </header>
+
+      <section class="panel">
+        <div class="grid">
+          <label class="field">
+            <span>妈妈昵称</span>
+            <input id="motherName" maxlength="12" placeholder="例如：女王大人" />
+          </label>
+          <label class="field">
+            <span>你的署名</span>
+            <input id="fromName" maxlength="12" placeholder="例如：小孩" />
+          </label>
+          <label class="field">
+            <span>语录分类</span>
+            <select id="category"></select>
+          </label>
+          <label class="field">
+            <span>反击语气</span>
+            <select id="tone">
+              <option value="warm">温柔夸夸</option>
+              <option value="funny">沙雕搞笑</option>
+              <option value="boss">霸总宠妈</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="btnPick" class="btn primary">抽一句</button>
+          <button id="btnReply" class="btn">生成反击</button>
+          <button id="btnFav" class="btn">收藏</button>
+          <button id="btnCopy" class="btn">复制文案</button>
+          <button id="btnLink" class="btn">复制分享链接</button>
+          <button id="btnPoster" class="btn glow">生成海报</button>
+        </div>
+      </section>
+
+      <section class="cardWrap">
+        <article class="card" id="card">
+          <div class="cardTop">
+            <div class="tag" id="tag">—</div>
+            <div class="small" id="hint">点击“抽一句”开始</div>
+          </div>
+          <div class="quote" id="quote">今天也要记得：你很棒。</div>
+          <div class="divider"></div>
+          <div class="replyLabel">你的反击：</div>
+          <div class="reply" id="reply">先抽一句语录吧～</div>
+          <div class="cardFooter">
+            <span class="footerText" id="footerText">—</span>
+            <span class="pill" id="counterPill">0 连抽</span>
+          </div>
+        </article>
+
+        <aside class="side">
+          <div class="tabs">
+            <button class="tab active" data-tab="fav">收藏</button>
+            <button class="tab" data-tab="his">历史</button>
+          </div>
+
+          <div class="tabPane" id="paneFav"></div>
+          <div class="tabPane hidden" id="paneHis"></div>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <span>Built with TRAE · 送给每一位妈妈</span>
+        <button id="btnReset" class="linkBtn">重置本地数据</button>
+      </footer>
+    </main>
+
+    <dialog id="posterDialog" class="dialog">
+      <div class="dialogBody">
+        <div class="dialogHeader">
+          <div class="dialogTitle">海报已生成</div>
+          <button id="btnCloseDialog" class="iconBtn" aria-label="关闭">×</button>
+        </div>
+        <img id="posterImg" alt="海报预览" />
+        <div class="dialogActions">
+          <a id="btnDownloadPoster" class="btn primary" download="母亲节海报.png">下载 PNG</a>
+          <button id="btnCopyPosterText" class="btn">复制海报文案</button>
+        </div>
+        <p class="dialogHint">提示：手机端若无法直接下载，可长按图片保存。</p>
+      </div>
+    </dialog>
+
+    <dialog id="easterDialog" class="dialog">
+      <div class="dialogBody">
+        <div class="dialogHeader">
+          <div class="dialogTitle">彩蛋：母亲节奖状</div>
+          <button id="btnCloseEaster" class="iconBtn" aria-label="关闭">×</button>
+        </div>
+        <div class="easter">
+          <div class="easterTitle">🏅 最强妈妈奖 🏅</div>
+          <div class="easterText" id="easterText">授予：妈妈</div>
+          <div class="easterSub">理由：全年无休的爱与操心，冠军级的温柔与强大。</div>
+          <button id="btnEasterPoster" class="btn glow">把奖状也做成海报</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
